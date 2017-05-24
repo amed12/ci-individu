@@ -1,0 +1,5 @@
+resume ci
+1. Autoload berfungsi untuk meload librari dari ci
+-config,controller,libraries,model,views,databases
+-helper
+2. Config file yang pertama kali disetting
