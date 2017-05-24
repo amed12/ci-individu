@@ -8,8 +8,8 @@ class M_aplikasi extends CI_Model
 	
 	function tambah_mahasiswa($data)
 	{	// query binding ditandai dengan "?" untuk security
-		$this->db->query("insert into mahasiswa (nim,nama) values
-			(?,?)", array($data['nim'],$data['nama']));
+	$this->db->query("insert into tugas (id_tugas,matkul,deskripsi,mulai,selesai,status) values
+			(?,?,?,?,?,?)", array(null,$data['matkul'],$data['deskripsi'],date("Y-m-d"),$data['selesai'],$data['status']));
 		
 		
 		// menghapus variabel dari memory
@@ -17,8 +17,8 @@ class M_aplikasi extends CI_Model
 	}
 	
 	function daftar_mahasiswa()
-	{	$query = $this->db->query("SELECT nim,nama 
-			FROM mahasiswa order by nim asc");
+	{	$query = $this->db->query("SELECT id_tugas,matkul,deskripsi,mulai,selesai,status 
+			FROM tugas order by id_tugas asc");
 		
 		// mengembalikan hasil query
 		return $query;
@@ -51,10 +51,10 @@ class M_aplikasi extends CI_Model
 		unset($nim, $data);
 	}
 	
-	function hapus_mahasiswa($nim)
+	function hapus_mahasiswa($id_tugas)
 	{	// query binding ditandai dengan "?" untuk security
-		$this->db->query("delete from mahasiswa 
-			where nim = ? ", array($nim));
+		$this->db->query("delete from tugas 
+			where id_tugas = ? ", array($id_tugas));
 		
 		// menghapus variabel dari memory
 		unset($nim);

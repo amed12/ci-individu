@@ -63,8 +63,11 @@ class Aplikasi extends CI_Controller
 	}
 	
 	public function proses_tambah_mahasiswa()
-	{	$data['nim'] = $this->input->post('nim');
-		$data['nama'] = $this->input->post('nama');
+	{	$data['matkul'] = $this->input->post('matkul');
+		$data['deskripsi'] = $this->input->post('deskripsi');
+		$data['mulai'] = $this->input->post('mulai');
+		$data['selesai'] = $this->input->post('selesai');
+		$data['status'] = $this->input->post('status');
 		
 		// menyimpan data mahasiswa di model m_aplikasi 
 		// function tambah_mahasiswa dengan parameter $data
@@ -108,10 +111,10 @@ class Aplikasi extends CI_Controller
 		unset($nim,$data);
 	}
 	
-	public function hapus_mahasiswa($nim)
+	public function hapus_mahasiswa($id_tugas)
 	{	// menghapus data mahasiswa di model m_aplikasi 
 		// function hapus_mahasiswa dengan parameter $nim
-		$this->m_aplikasi->hapus_mahasiswa($nim);
+		$this->m_aplikasi->hapus_mahasiswa($id_tugas);
 		
 		redirect(base_url('aplikasi/daftar_mahasiswa'));
 	}
