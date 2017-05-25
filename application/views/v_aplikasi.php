@@ -6,7 +6,7 @@ if ( $this->session->userdata('userid') and
 <!doctype html>
 <html>
 <head>
-<title></title>
+<title>Sistem Pencatat Tugas kuliah online</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="<?=site_url('assets/css/bootstrap.css')?>" rel="stylesheet">		
 	<link href="<?=base_url('assets/css/bootstrap-responsive.css')?>" rel="stylesheet">
@@ -53,17 +53,24 @@ if ( $this->session->userdata('userid') and
 } else if ((isset($page)) and ($page == 'ubah_mahasiswa')) { ?>
 	<legend>Ubah Mahasiswa</legend>
 	<?=form_open('aplikasi/proses_ubah_mahasiswa','class="form-horizontal"')?>
-	<input type="hidden" name="nim" value="<?=$mhs->nim ?>">
+	<input type="hidden" name="nim" value="<?=$mhs->id_tugas ?>">
 	<table>
-		<tr><td>NIM </td><td>: <input type="text" name="nim" value="<?=$mhs->nim ?>" disabled/></td> </tr>
-		<tr><td>Nama </td><td>: <input type="text" name="nama" value="<?=$mhs->nama ?>"/></td> </tr>
+		<tr><td>Matkul </td><td>: <input type="text" name="nim" value="<?=$mhs->matkul ?>" disabled/></td> </tr>
+		<tr><td>Deskripsi </td><td>: 
+		<textarea name="deskripsi"><?=$mhs->deskripsi ?></textarea></td> </tr>
+		<tr><td>Deadline </td><td>: <input type="date" name="nama" value="<?=$mhs->selesai ?>"/></td> </tr>
+		<tr><td>Status </td><td>: <input type="text" name="nama" value="<?=$mhs->status ?>"/></td> </tr>
+		
 		<tr><td><button type="submit" name="ubah" class="btn btn-primary"><i class="icon-ok icon-white"></i> Ubah</button></td> </tr>		
 	</table>
 	</form>
 <? 
 // menghapus variabel dari memory
 unset($mhs);
-} else if ((isset($page)) and ($page == 'daftar_mahasiswa')) { ?>  <div class="col-md-2">
+} else if ((isset($page)) and ($page == 'daftar_mahasiswa')) { ?>  
+
+<div class="col-md-2">
+
 		<div class="row">
 			
 				<div class="col-xs-6 col-md-12">
@@ -73,12 +80,13 @@ unset($mhs);
 				</div>
 		</div>
 
-		<div class="row"></div>
+		<div class="row">
 		<ul class="nav nav-pills nav-stacked">
 			<li class="active"><a href="<?=base_url('aplikasi');?>"><span class="fa fa-home"></span>  Dashboard</a></li>			
 					
 			<li><a href="<?=base_url('aplikasi/logout');?>" onClick="return confirm('Apakah Anda ingin logout?')"><span class="fa fa-sign-in"></span>  Logout</a></li>
 			</ul>
+			</div>
 			</div>	
 	<legend>Daftar Tugas</legend>
 	<table class="table table-bordered">

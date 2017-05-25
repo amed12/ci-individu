@@ -29,8 +29,8 @@ class M_aplikasi extends CI_Model
 	
 	function data_mahasiswa($nim)
 	{	// query binding ditandai dengan "?" untuk security
-		$query = $this->db->query("SELECT nim,nama 
-			FROM mahasiswa where nim = ? ",array($nim));
+		$query = $this->db->query("SELECT id_tugas,matkul,deskripsi,selesai,status 
+			FROM tugas where id_tugas = ? ",array($nim));
 		
 		// mengembalikan hasil query
 		return $query;
