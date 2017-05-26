@@ -51,19 +51,47 @@ if ( $this->session->userdata('userid') and
 	</form>
 <? 
 } else if ((isset($page)) and ($page == 'ubah_mahasiswa')) { ?>
-	<legend>Ubah Mahasiswa</legend>
+	<legend><a style="font-color:yellow">Ubah Mahasiswa</a></legend>
 	<?=form_open('aplikasi/proses_ubah_mahasiswa','class="form-horizontal"')?>
+	<div class="col-md-2">
+		<div class="row">
+			
+				<div class="col-xs-6 col-md-12">
+					<a class="thumbnail">
+						<img class="img-responsive" src="<?=base_url('assets/uin.png')?>">
+					</a>
+				</div>
+		</div>
+
+		<div class="row"></div>
+		<ul class="nav nav-pills nav-stacked">
+			<li class="active"><a href="<?=base_url('aplikasi');?>"><span class="fa fa-home"></span>  Dashboard</a></li>			
+					
+			<li><a href="<?=base_url('aplikasi/logout');?>" onClick="return confirm('Apakah Anda ingin logout?')"><span class="fa fa-sign-in"></span>  Logout</a></li>
+			</ul>
+			</div>	
+	
 	<input type="hidden" name="nim" value="<?=$mhs->id_tugas ?>">
 	<table>
 		<tr><td>Matkul </td><td>: <input type="text" name="nim" value="<?=$mhs->matkul ?>" disabled/></td> </tr>
 		<tr><td>Deskripsi </td><td>: 
 		<textarea name="deskripsi"><?=$mhs->deskripsi ?></textarea></td> </tr>
 		<tr><td>Deadline </td><td>: <input type="date" name="nama" value="<?=$mhs->selesai ?>"/></td> </tr>
-		<tr><td>Status </td><td>: <input type="text" name="nama" value="<?=$mhs->status ?>"/></td> </tr>
+		<?php 
+		$jupuk = $mhs->status;
+		?>
+		
+		<tr><td>Status </td><td>: <select name="status">
+  <option <?=($jupuk=='Baru Mulai')?'selected="selected"':''?>>Baru Mulai</option>
+  <option <?=($jupuk=='Proses Pengerjaan')?'selected="selected"':''?>>Proses Pengerjaan</option>
+  <option <?=($jupuk=='Pekerjaan Selesai')?'selected="selected"':''?>>Pekerjaan Selesai</option>
+  </select>
+		</td> </tr>
 		
 		<tr><td><button type="submit" name="ubah" class="btn btn-primary"><i class="icon-ok icon-white"></i> Ubah</button></td> </tr>		
 	</table>
 	</form>
+
 <? 
 // menghapus variabel dari memory
 unset($mhs);
