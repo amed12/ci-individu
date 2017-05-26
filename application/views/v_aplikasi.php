@@ -18,9 +18,9 @@ if ( $this->session->userdata('userid') and
 <body>
 <div class="container">
 <fieldset>
-<? if ((isset($page)) and ($page == 'tambah_mahasiswa')) { ?>
-	<legend>Tambah Mahasiswa</legend>
-	<?=form_open('aplikasi/proses_tambah_mahasiswa','class="form-horizontal"')?>
+<? if ((isset($page)) and ($page == 'tambah_tugas')) { ?>
+	<legend>Tambah tugas</legend>
+	<?=form_open('aplikasi/proses_tambah_tugas','class="form-horizontal"')?>
 	<div class="col-md-2">
 		<div class="row">
 			
@@ -50,9 +50,9 @@ if ( $this->session->userdata('userid') and
 	</table>
 	</form>
 <? 
-} else if ((isset($page)) and ($page == 'ubah_mahasiswa')) { ?>
-	<legend><a style="font-color:yellow">Ubah Mahasiswa</a></legend>
-	<?=form_open('aplikasi/proses_ubah_mahasiswa','class="form-horizontal"')?>
+} else if ((isset($page)) and ($page == 'ubah_tugas')) { ?>
+	<legend><a style="font-color:yellow">Ubah tugas</a></legend>
+	<?=form_open('aplikasi/proses_ubah_tugas','class="form-horizontal"')?>
 	<div class="col-md-2">
 		<div class="row">
 			
@@ -95,7 +95,7 @@ if ( $this->session->userdata('userid') and
 <? 
 // menghapus variabel dari memory
 unset($mhs);
-} else if ((isset($page)) and ($page == 'daftar_mahasiswa')) { ?>  
+} else if ((isset($page)) and ($page == 'daftar_tugas')) { ?>  
 
 <div class="col-md-2">
 
@@ -133,16 +133,16 @@ unset($mhs);
 						  <td>".$r->mulai."</td>
 						  <td>".$r->selesai."</td>
 						  <td>".$r->status."</td>
-						  <td><center><a href='".base_url('aplikasi/ubah_mahasiswa/'.$r->id_tugas)."'><i class='icon-edit'></i> Ubah</a></center>
+						  <td><center><a href='".base_url('aplikasi/ubah_tugas/'.$r->id_tugas)."'><i class='icon-edit'></i> Ubah</a></center>
 						  </td>
-						  <td><center><a href='".base_url('aplikasi/hapus_mahasiswa/'.$r->id_tugas)."'  onClick=\"return confirm('Apakah Anda ingin menghapus data ini?')\"><i class='icon-remove'></i> Hapus</a></center>
+						  <td><center><a href='".base_url('aplikasi/hapus_tugas/'.$r->id_tugas)."'  onClick=\"return confirm('Apakah Anda ingin menghapus data ini?')\"><i class='icon-remove'></i> Hapus</a></center>
 						  </td>
 					  <tr/>";
 			}
 		?>
 	</table>
 	<br/>
-	<a href="<?=base_url('aplikasi/tambah_mahasiswa');?>"><i class="icon-plus-sign"></i> Tambah Tugas</a>
+	<a href="<?=base_url('aplikasi/tambah_tugas');?>"><i class="icon-plus-sign"></i> Tambah Tugas</a>
 <? 
 // menghapus variabel dari memory
 unset($daftar_mhs,$r);
@@ -161,7 +161,7 @@ unset($daftar_mhs,$r);
 		<div class="row"></div>
 		<ul class="nav nav-pills nav-stacked">
 			<li class="active"><a href="<?=base_url('aplikasi');?>"><span class="fa fa-home"></span>  Dashboard</a></li>			
-			<li><a href="<?=base_url('aplikasi/daftar_mahasiswa');?>"><span class="fa fa-book"></span>  Entry Tugas</a></li>        									
+			<li><a href="<?=base_url('aplikasi/daftar_tugas');?>"><span class="fa fa-book"></span>  Entry Tugas</a></li>        									
 			<li><a href="<?=base_url('aplikasi/logout');?>" onClick="return confirm('Apakah Anda ingin logout?')"><span class="fa fa-sign-in"></span>  Logout</a></li>
 			</ul>
 			</div>		

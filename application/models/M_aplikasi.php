@@ -6,7 +6,7 @@ class M_aplikasi extends CI_Model
 	{	parent::__construct();
 	}
 	
-	function tambah_mahasiswa($data)
+	function tambah_tugas($data)
 	{	// query binding ditandai dengan "?" untuk security
 	$this->db->query("insert into tugas (id_tugas,matkul,deskripsi,mulai,selesai,status) values
 			(?,?,?,?,?,?)", array(null,$data['matkul'],$data['deskripsi'],date("Y-m-d"),$data['selesai'],$data['status']));
@@ -16,7 +16,7 @@ class M_aplikasi extends CI_Model
 		unset($data);
 	}
 	
-	function daftar_mahasiswa()
+	function daftar_tugas()
 	{	$query = $this->db->query("SELECT id_tugas,matkul,deskripsi,mulai,selesai,status 
 			FROM tugas order by id_tugas asc");
 		
@@ -27,7 +27,7 @@ class M_aplikasi extends CI_Model
 		$query = null;
 	}
 	
-	function data_mahasiswa($nim)
+	function data_tugas($nim)
 	{	// query binding ditandai dengan "?" untuk security
 		$query = $this->db->query("SELECT id_tugas,matkul,deskripsi,selesai,status 
 			FROM tugas where id_tugas = ? ",array($nim));
@@ -42,7 +42,7 @@ class M_aplikasi extends CI_Model
 		unset($nim);
 	}
 	
-	function ubah_mahasiswa($nim, $data)
+	function ubah_tugas($nim, $data)
 	{	// query binding ditandai dengan "?" untuk security
 		$this->db->query("update tugas set matkul = ?, deskripsi = ?, selesai = ?, status = ?
 			where id_tugas = ? ", array($data['matkul'],$data['deskripsi'],$data['selesai'],$data['status'],$nim));
@@ -51,7 +51,7 @@ class M_aplikasi extends CI_Model
 		unset($nim, $data);
 	}
 	
-	function hapus_mahasiswa($id_tugas)
+	function hapus_tugas($id_tugas)
 	{	// query binding ditandai dengan "?" untuk security
 		$this->db->query("delete from tugas 
 			where id_tugas = ? ", array($id_tugas));

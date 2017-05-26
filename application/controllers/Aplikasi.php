@@ -56,70 +56,70 @@ class Aplikasi extends CI_Controller
 		unset($angka1,$angka2,$pilih_hitung,$hasil_hitung,$data);
 	}
 	//main page jika butuh banyak page
-	public function tambah_mahasiswa()
-	{	$data['page'] = 'tambah_mahasiswa';
+	public function tambah_tugas()
+	{	$data['page'] = 'tambah_tugas';
 		$this->load->view('v_aplikasi',$data);
 		unset($data);
 	}
 	
-	public function proses_tambah_mahasiswa()
+	public function proses_tambah_tugas()
 	{	$data['matkul'] = $this->input->post('matkul');
 		$data['deskripsi'] = $this->input->post('deskripsi');
 		$data['mulai'] = $this->input->post('mulai');
 		$data['selesai'] = $this->input->post('selesai');
 		$data['status'] = $this->input->post('status');
 		
-		// menyimpan data mahasiswa di model m_aplikasi 
-		// function tambah_mahasiswa dengan parameter $data
-		$this->m_aplikasi->tambah_mahasiswa($data);
+		// menyimpan data tugas di model m_aplikasi 
+		// function tambah_tugas dengan parameter $data
+		$this->m_aplikasi->tambah_tugas($data);
 		
-		redirect(base_url('aplikasi/daftar_mahasiswa'));
+		redirect(base_url('aplikasi/daftar_tugas'));
 		unset($data);
 	}
 	
-	public function daftar_mahasiswa()
-	{	$data['page'] = 'daftar_mahasiswa';
+	public function daftar_tugas()
+	{	$data['page'] = 'daftar_tugas';
 	
 		// mengambil semua baris (menggunakan fungsi result()) 
-		// di model m_aplikasi function daftar_mahasiswa
-		$data['daftar_mhs'] = $this->m_aplikasi->daftar_mahasiswa()->result();
+		// di model m_aplikasi function daftar_tugas
+		$data['daftar_mhs'] = $this->m_aplikasi->daftar_tugas()->result();
 		
 		$this->load->view('v_aplikasi',$data);
 		unset($data);
 	}
 	
-	public function ubah_mahasiswa($nim)
-	{	$data['page'] = 'ubah_mahasiswa';
+	public function ubah_tugas($nim)
+	{	$data['page'] = 'ubah_tugas';
 		
 		// mengambil hanya satu baris (menggunakan fungsi row()) 
-		// di model m_aplikasi function daftar_mahasiswa dengan parameter $nim
-		$data['mhs'] = $this->m_aplikasi->data_mahasiswa($nim)->row();
+		// di model m_aplikasi function daftar_tugas dengan parameter $nim
+		$data['mhs'] = $this->m_aplikasi->data_tugas($nim)->row();
 		
 		$this->load->view('v_aplikasi',$data);
 		unset($data);
 	}
 	
-	public function proses_ubah_mahasiswa()
+	public function proses_ubah_tugas()
 	{	$data['matkul'] = $this->input->post('matkul');
 	$data['deskripsi'] = $this->input->post('deskripsi');
 	$data['selesai'] = $this->input->post('selesai');
 	$data['status'] = $this->input->post('status');
 		$nim = $this->input->post('id_tugas');
 		
-		// mengubah data mahasiswa di model m_aplikasi function ubah_mahasiswa
+		// mengubah data tugas di model m_aplikasi function ubah_tugas
 		// dengan parameter $nim dan $data
-		$this->m_aplikasi->ubah_mahasiswa($nim,$data);	
+		$this->m_aplikasi->ubah_tugas($nim,$data);	
 		
-		redirect(base_url('aplikasi/daftar_mahasiswa'));
+		redirect(base_url('aplikasi/daftar_tugas'));
 		unset($nim,$data);
 	}
 	
-	public function hapus_mahasiswa($id_tugas)
-	{	// menghapus data mahasiswa di model m_aplikasi 
-		// function hapus_mahasiswa dengan parameter $nim
-		$this->m_aplikasi->hapus_mahasiswa($id_tugas);
+	public function hapus_tugas($id_tugas)
+	{	// menghapus data tugas di model m_aplikasi 
+		// function hapus_tugas dengan parameter $nim
+		$this->m_aplikasi->hapus_tugas($id_tugas);
 		
-		redirect(base_url('aplikasi/daftar_mahasiswa'));
+		redirect(base_url('aplikasi/daftar_tugas'));
 	}
 	
 	public function logout()
