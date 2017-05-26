@@ -71,12 +71,12 @@ if ( $this->session->userdata('userid') and
 			</ul>
 			</div>	
 	
-	<input type="hidden" name="nim" value="<?=$mhs->id_tugas ?>">
+	<input type="hidden" name="id_tugas" value="<?=$mhs->id_tugas ?>">
 	<table>
-		<tr><td>Matkul </td><td>: <input type="text" name="nim" value="<?=$mhs->matkul ?>" disabled/></td> </tr>
+		<tr><td>Matkul </td><td>: <input type="text" name="matkul" value="<?=$mhs->matkul ?>"/></td> </tr>
 		<tr><td>Deskripsi </td><td>: 
 		<textarea name="deskripsi"><?=$mhs->deskripsi ?></textarea></td> </tr>
-		<tr><td>Deadline </td><td>: <input type="date" name="nama" value="<?=$mhs->selesai ?>"/></td> </tr>
+		<tr><td>Deadline </td><td>: <input type="date" name="selesai" value="<?=$mhs->selesai ?>"/></td> </tr>
 		<?php 
 		$jupuk = $mhs->status;
 		?>

@@ -100,8 +100,11 @@ class Aplikasi extends CI_Controller
 	}
 	
 	public function proses_ubah_mahasiswa()
-	{	$data['nama'] = $this->input->post('nama');
-		$nim = $this->input->post('nim');
+	{	$data['matkul'] = $this->input->post('matkul');
+	$data['deskripsi'] = $this->input->post('deskripsi');
+	$data['selesai'] = $this->input->post('selesai');
+	$data['status'] = $this->input->post('status');
+		$nim = $this->input->post('id_tugas');
 		
 		// mengubah data mahasiswa di model m_aplikasi function ubah_mahasiswa
 		// dengan parameter $nim dan $data

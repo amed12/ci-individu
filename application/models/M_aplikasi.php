@@ -44,8 +44,8 @@ class M_aplikasi extends CI_Model
 	
 	function ubah_mahasiswa($nim, $data)
 	{	// query binding ditandai dengan "?" untuk security
-		$this->db->query("update mahasiswa set nama = ?
-			where nim = ? ", array($data['nama'],$nim));
+		$this->db->query("update tugas set matkul = ?, deskripsi = ?, selesai = ?, status = ?
+			where id_tugas = ? ", array($data['matkul'],$data['deskripsi'],$data['selesai'],$data['status'],$nim));
 		
 		// menghapus variabel dari memory
 		unset($nim, $data);
